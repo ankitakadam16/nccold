@@ -1,0 +1,102 @@
+{% extends "base.html" %} {% load staticfiles %} {% block specific_head %}
+<title>{{seoDetails.title}}'s Blog</title>
+
+<meta name="description" content="{{seoDetails.description}}"/>
+<link rel="canonical" href="{{seoDetails.url}}" />
+<link rel="publisher" href="{{seoDetails.publisher}}"/>
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="{{seoDetails.title}}'s Blog" />
+<meta property="og:description" content="{{seoDetails.description}}" />
+<meta property="og:url" content="{{seoDetails.url}}" />
+<meta property="og:site_name" content="{{seoDetails.site_name}}" />
+<meta property="og:updated_time" content="2018-04-01T07:17:53+00:00" />
+<meta property="og:image" content="https://{{ request.get_host }}{{seoDetails.image}}" />
+<meta property="og:image:secure_url" content="https://{{ request.get_host }}{{seoDetails.image}}" />
+<meta property="og:image:width" content="{{seoDetails.width}}" />
+<meta property="og:image:height" content="{{seoDetails.height}}" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:description" content="{{seoDetails.description}}" />
+<meta name="twitter:title" content="{{seoDetails.title}}'s Blog" />
+<meta name="twitter:site" content="{{seoDetails.site_name}}" />
+<meta name="twitter:image" content="https://{{ request.get_host }}{{seoDetails.image}}" />
+<meta name="twitter:creator" content="{{seoDetails.twitter_creator}}" />
+
+<meta property="article:author" content="{{seoDetails.author}}" />
+<link rel="icon" href="/static/images/tutor.ico" type="image/gif" sizes="16x16">
+{% endblock %} {% block specific_css %}
+<link href="{% static 'css/agency.css' %}" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/animate.css' %}" charset="utf-8">
+ {% endblock %} {% block header %} {% include "header.html" %} {% endblock %}
+<!-- Header -->
+{% block content %}
+<div>
+  <div class="container-fluid" style="padding-left:0px;padding-right:0px;">
+    <header style="background: url('/static/images/blog_banner.jpg') no-repeat top center/cover;height:40vh;width:100%;">
+      <div class="container" style="overflow:hidden;">
+        <div style="text-align:center;">
+
+        </div>
+      </div>
+    </header>
+  </div>
+  <!-- Services Section -->
+  <div class="body">
+    <div class="container" style="padding-left:0px;padding-right:0px;box-shadow: 0px 30px 50px 12px #d0d5dd;">
+      {% if dataLen == 0 %}
+        <div class="row text-center">
+          <h3>No blog posts , Please visit again.</h3>
+        </div>
+      {% endif %}
+
+      {% for a in data %}
+
+      <div class="container-fluid" style="{% if forloop.counter|divisibleby:2 %}background:#eeeeee;{% endif %}">
+        <section style="padding-top: 20px;padding-bottom: 30px;">
+
+          <div class="row">
+            <div class="col-md-12 text-left" style="margin-left: 40px;margin-right: 10px">
+              <h2 style="font-size:19px;" class="text-primary"> <a href = "/{{a.url}}/ ">  {{a.title}} </a></h2>
+              By {{a.user}} <span style="margin-left: 10px;"> | </span> <span style="margin-left: 10px;">{{a.date}}</span>
+            </div>
+          </div>
+          <div class="container-fluid" style="margin-left:40px;margin-right: 10px;padding:0px;margin-top:15px;">
+            {{a.header | safe}}
+          </div>
+        </section>
+      </div>
+      {% endfor %}
+
+      <div class='pages' style='text-align:center'>
+        <div class='pagesbtn'>
+        {% if pages.currentpage != pages.first %}
+          <a href="/blog/">
+            <div class="btn btn-primary">First</div><a>
+          <a href="/blog/?page={{ pages.prev }}"><div class="btn btn-primary">Prev</div><a>
+        {% endif %}
+        {% if pages.currentpage != pages.last and pages.last > pages.first %}
+          <a href="/blog/?page={{ pages.next }}"><div class="btn btn-primary">Next</div><a>
+          <a href="/blog/?page={{ pages.last }}"><div class="btn btn-primary">Last</div><a>
+        {% endif %}
+
+        </div>
+      </div><br> {% endblock %} {% block footer %} {% include "footer.html" %}
+    </div>
+  </div>
+</div>
+
+
+
+
+{% endblock %} {% block specific_js %}
+<script src="{% static 'js/jquery.easing.min.js' %}"></script>
+<script src="{% static 'js/classie.js' %}"></script>
+<!-- <script src="{% static 'js/cbpAnimatedHeader.js' %}"></script> -->
+
+<script src="{% static 'js/agency.js' %}"></script>
+<script src="{% static 'js/angular.min.js' %}"></script>
+<script src="{% static 'js/angular-ui-router.min.js' %}"></script>
+<script src="{% static 'js/angular-sanitize.min.js' %}"></script>
+<script src="{% static 'js/app.homepage.js' %}"></script>
+
+{% endblock %}

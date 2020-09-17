@@ -1,0 +1,110 @@
+<div class="container-fluid" >
+<div class="row">
+<div class="col-md-offset-2 col-md-8">
+	<div class="row">
+		<div class="col-md-12 text-center">
+		<h4 style=" text-decoration: underline;"> APPLICATION FOR LOCAL PURCHASE SANCTION:  </h4>
+		<h4 style=" text-decoration: underline;"> UNDER CENTRAL SHARE OF ATG 2019-20</h4>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row" style="padding-top:30px">
+			<div class="col-md-10" style="padding-right:0px">
+				<p> Unit : {{newPo.user.first_name}} </p>
+				<table class="table table-bordered">
+				    <thead>
+				      <tr>
+				        <th>Ser</th>
+				        <th>Item</th>
+				        <th>Deno</th>
+				        <th>Qty</th>
+				        <th>Rate</th>
+				        <th>Amount</th>
+				      </tr>
+				    </thead>
+				    <tbody>
+				      <tr ng-repeat="a in newPo.poItems">
+				        <td>{{$index+1}}</td>
+				        <td>{{a.name}}</td>
+				        <td>{{a.denominator}}</td>
+				        <td>{{a.quantity}}</td>
+				        <td>{{a.rate| number : 2 }}</td>
+				        <td>{{a.grandTotal| number : 2 }}</td>
+				      </tr>
+							<tr >
+								<td  colspan="5"><strong>{{inWords}}</strong></td>
+								<!-- <td></td>
+								<td></td>
+								<td></td>
+								<td></td> -->
+								<td><strong>{{newPo.poTotal | number : 2 }}</strong></td>
+							</tr>
+				    </tbody>
+				  </table>
+			</div>
+			<div class="col-md-2" >
+				<!-- <div class="row">
+				<p> <strong> Firm’s Address</p></strong>
+				</div> -->
+				<div class="row" style="padding-top:35%">
+				{{newPo.vendorName}}<br/>{{newPo.vendorAddress}}
+				</div>
+
+			</div>
+		</div>
+		<div class="row" style="padding-top:30px">
+			<div class="col-md-12">
+				3 . Document attached ( Please tick )
+				<ol type="a">
+					<li> Statement of case (When CFA is DGNCC/Ex-Post Fado Sanction) </li>
+					<li> Calling for quotation/estimated cost letter from Unit to firm </li>
+					<li> Quotation duly endorsed by CO of Unit
+						 <ol  type="i">
+						<li> General Dealer - Nil </li>
+						<li> Authorised dealer/service station - 01 </li>
+					</ol>
+				 </li>
+				 <li> Competative statement (02 Copies) approved by board of officer duly recommended by group commander ( in case of Para 3 (c) (i) above) </li>
+				 <li> NA Certificate from concerned ord depot - N/A  </li>
+				 <li> Authentication of authorised dealership in case of Para 3c of (ii) above  </li>
+				</ol>
+				<div class="col-md-3">
+					State Funds
+				</div>
+				<div class="col-md-9">
+					<div class="row">
+						<div class="col-md-5 text-right">
+							Alloted :
+						</div>
+						<div class="col-md-7">
+							Rs 56,900.00
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-5 text-right">
+							Amount utilised excluding this bill :
+						</div>
+						<div class="col-md-7">
+							Rs Nil
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-5 text-right">
+							Praposal for an amount of :
+						</div>
+						<div class="col-md-7">
+							Rs Nil
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+</div>
+<div class="col-md-2">
+	<a href="/api/ERP/downloadapplication/?id={{newPo.pk}}" target="_blank"><i class="fa fa-download fa-2x pull-right" > </i></a>
+</div>
+</div>
+</div>

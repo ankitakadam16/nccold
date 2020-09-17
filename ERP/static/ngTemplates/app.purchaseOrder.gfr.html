@@ -1,0 +1,124 @@
+<div class="container-fluid" >
+<div class="row">
+<div class="col-md-offset-2 col-md-8">
+	<div class="row">
+		<div class="col-md-12 text-center">
+		<h4 style=" text-decoration: underline;"> CERTIFICATE OF GENUINE SUPPLIER AND RATES</h4>
+		<h4 style=" text-decoration: underline;"> VIDE GFR ART. {{newPo.gfrRule}}</h4>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12 text-center">
+			<img src="/static/images/download.png" alt="" style="height:100px;width:100px">
+		</div>
+	</div>
+	<div class="row" style="padding-top:30px">
+		<div class="col-md-12">
+			<p style="text-indent: 30px;">Certified that we, members of the local purchase committee are jointly and individually satisfied that the goods/services recommended for purchase are of the requisite specification and quality, priced at the prevailing market rate and the supplier <strong>  {{newPo.vendorName}} {{newPo.vendorAddress}}, India </strong> recommended is reliable and competent to supply the goods in question it is not debarred by Department of Commerce of Ministry / department concerned. </p>
+		</div>
+	</div>
+	<div class="row" style="padding-top:30px">
+		<div class="col-md-12">
+			<table class="table table-bordered">
+			    <thead>
+			      <tr>
+			        <th>Ser</th>
+			        <th>Item</th>
+			        <th>Deno</th>
+			        <th>Qty</th>
+			        <th>Rate</th>
+			        <th>Amount</th>
+			      </tr>
+			    </thead>
+			    <tbody>
+			      <tr ng-repeat="a in newPo.poItems">
+			        <td>{{$index+1}}</td>
+			        <td>{{a.name}}</td>
+			        <td>{{a.denominator}}</td>
+			        <td>{{a.quantity}}</td>
+			        <td>{{a.rate | number : 2}}</td>
+			        <td>{{a.grandTotal | number : 2}}</td>
+			      </tr>
+						<tr >
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td><strong>Total Amount</strong></td>
+							<td><strong>{{newPo.poTotal | number : 2 }}</strong></td>
+						</tr>
+						<tr >
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td><strong>GST @ %</strong></td>
+							<td><strong>Inclusive</strong></td>
+						</tr>
+						<tr >
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td><strong>Grand Total (INR)</strong></td>
+							<td><strong>{{newPo.poTotal | number : 2}}</strong></td>
+						</tr>
+			    </tbody>
+			  </table>
+		</div>
+	</div>
+	<div class="row" style="padding-top:30px">
+		<div class="col-md-4">
+		<label>{{newPo.member1_name}}</label><br/>
+		<label>{{newPo.member1_pos}}</label><br/>
+		<label>{{newPo.member1_no}}</label><br/>
+		<label>Member</label>
+		</div>
+		<div class="col-md-4">
+		<label>{{newPo.member2_name}}</label><br/>
+		<label>{{newPo.member2_pos}}</label><br/>
+		<label>{{newPo.member2_no}}</label><br/>
+		<label>Member</label>
+		</div>
+		<div class="col-md-4">
+			<label>{{newPo.member3_name}}</label><br/>
+			<label>{{newPo.member3_pos}}</label><br/>
+			<label>{{newPo.member3_no}}</label><br/>
+			<label>Member</label>
+		</div>
+	</div>
+	<div class="row" style="padding-top:30px">
+		<div class="col-md-2">
+		File No:
+		</div>
+		<div class="col-md-10">
+		{{newPo.fileNo}}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-2">
+		Unit:
+		</div>
+		<div class="col-md-10">
+		{{newPo.unitAddress}}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-2">
+		Date:
+		</div>
+		<div class="col-md-10">
+		{{newPo.dated}}
+		</div>
+	</div>
+	<!-- <div class="row">
+		<div class="col-md-12">
+		<button class="btn btn-primary pull-right" ng-click="update()"> Update </button>
+		</div>
+	</div> -->
+</div>
+<div class="col-md-2">
+	<a href="/api/ERP/downloadgrf/?id={{newPo.pk}}" target="_blank"><i class="fa fa-download fa-2x pull-right" > </i></a>
+</div>
+</div>
+</div>

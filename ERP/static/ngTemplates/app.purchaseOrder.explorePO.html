@@ -1,0 +1,43 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12" style="background-color:#C8C8C8">
+			<div class="row" style="cursor:pointer">
+				<div class="col-md-2 text-center" ng-click="selected='gfr'" style="padding-top:15px;padding-bottom:15px;background-color:{{selected=='gfr'?'#ffffff':''}}">
+						GFR
+				</div>
+				<div class="col-md-2 text-center" ng-click="selected='sanction'" style="padding-top:15px;padding-bottom:15px;background-color:{{selected=='sanction'?'#ffffff':''}}">
+						Sanction
+				</div>
+				<div class="col-md-2 text-center" ng-click="selected='so'" style="padding-top:15px;padding-bottom:15px;background-color:{{selected=='so'?'#ffffff':''}}">
+					Supply Order
+				</div>
+				<div class="col-md-2 text-center" ng-click="selected='cst'" style="padding-top:15px;padding-bottom:15px;background-color:{{selected=='cst'?'#ffffff':''}}">
+					CST
+				</div>
+				<div class="col-md-2 text-center" ng-click="selected='application'" style="padding-top:15px;padding-bottom:15px;background-color:{{selected=='application'?'#ffffff':''}}">
+					Application
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row" ng-if="selected=='gfr'">
+		<div class="col-md-12" >
+			<div ng-include="'/static/ngTemplates/app.purchaseOrder.gfr.html'" ></div>
+		</div>
+	</div>
+	<div class="row" ng-if="selected=='sanction'">
+		<div class="col-md-12" >
+			<div ng-include="'/static/ngTemplates/app.purchaseOrder.sanction.html'" ></div>
+		</div>
+	</div>
+	<div class="row" ng-if="selected=='so'">
+		<div class="col-md-12" >
+			<div ng-include="'/static/ngTemplates/app.purchaseOrder.so.html'" ></div>
+		</div>
+	</div>
+	<div class="row" ng-if="selected=='application'">
+		<div class="col-md-12" >
+			<div ng-include="'/static/ngTemplates/app.purchaseOrder.applicaion.html'" ></div>
+		</div>
+	</div>
+</div>

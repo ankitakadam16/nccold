@@ -1,0 +1,50 @@
+<div class="shaddowed card bg-white" style="min-height:93vh;">
+  <breadcrumb></breadcrumb>
+  <div class="container-fluid">
+    <div class="row" style="margin-top:20px;margin-bottom:20px;">
+      <div class="col-md-offset-4 col-md-2">
+        <button type="button" class="btn btn-sm btn-primary btn-block" style="padding:8px" ng-click="$state.go('businessManagement.createContingent')">New Contingent Bill</button>
+      </div>
+      <div class="col-md-4">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search with username" ng-model="search.searchText" ng-change="viewContingent()">
+          <div class="input-group-btn">
+            <button class="btn btn-default" type="submit" ng-click="refresh()">
+              <i class="fa fa-refresh"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-1">
+        <button type="button" class="btn btn-sm btn-primary btn-block" style="padding:8px 18px" ng-click="prev()">Prev</button>
+      </div>
+      <div class="col-md-1">
+        <button type="button" class="btn btn-sm btn-primary btn-block " style="padding:8px 18px" ng-click="next()">Next</button>
+      </div>
+    </div>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Invoice Number</th>
+          <th>Invoice Date</th>
+          <th>Subject</th>
+          <!-- <th>Minor Head</th> -->
+          <!-- <th>Total</th> -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="k in contingentList" >
+          <td>#{{k.pk}}</td>
+          <td>{{k.invoiceNo}}</td>
+          <td>{{k.invoiceDate}}</td>
+          <td>{{k.subject}}</td>
+          <!-- <td>{{k.minorHead}}</td> -->
+          <!-- <td>{{k.total}}</td> -->
+          <td><i ng-click="$state.go('businessManagement.editContingent',{'id':k.pk}); $event.stopPropagation();" class="fa fa-pencil"></i></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

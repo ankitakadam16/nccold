@@ -1,0 +1,235 @@
+<div class="modal-body">
+  <div class="row">
+    <div class="col-md-offset-2 col-md-4">
+      <!-- <h4 style="text-align:center;">{{newPo.pk?'Edit':'Create'}} PO Order</h4> -->
+      <div class="form-group">
+        <label>Vendor</label>
+        <input type="text" class="form-control" ng-model="newPo.vendor" uib-typeahead="v as v.name for v in vendorSearch($viewValue)" placeholder="Search by vendor name..">
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="form-group" >
+      <label>File Number</label>
+      <div class="input-group" >
+      <input type="text" class="form-control" ng-model="newPo.fileNo" required placeholder="File Number">
+      </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="form-group" >
+      <label>Date</label>
+      <div class="input-group" >
+        <input type="text" class="form-control" show-weeks="false" uib-datepicker-popup="dd-MMMM-yyyy" ng-model="newPo.dated" is-open="status.opened"  />
+        <span class="input-group-btn">
+          <button type="button" class="btn btn-default" ng-click="status.opened = true;"><i class="glyphicon glyphicon-calendar"></i></button>
+        </span>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-offset-2 col-md-8">
+     <div class="form-group">
+        <label>Unit Address</label>
+        <textarea type="text" class="form-control" ng-model="newPo.unitAddress"  placeholder="Unit Address" disabled></textarea>
+      </div>
+    </div>
+  </div>
+    <div class="row">
+    <div class="col-md-offset-2 col-md-8">
+     <div class="form-group">
+        <label>Delivery Address</label>
+        <textarea type="text" class="form-control" ng-model="newPo.deliveryAddress"  placeholder="Delivery Address"></textarea>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-offset-2 col-md-8">
+        <div class="form-group">
+        <label>Subject</label>
+        <input type="text" class="form-control" ng-model="newPo.subject" required placeholder="Enter subject">
+      </div>
+    </div>
+  </div>
+  <div class="row" ng-if="supplyShow">
+    <div class="col-md-offset-2 col-md-8">
+       <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label>Supply Order Number</label>
+            <input type="text" class="form-control" ng-model="newPo.supplyOrderNo"  placeholder="Supply Order Number" ng-change="add()">
+         </div>
+       </div>
+        <div class="col-md-6">
+          <div class="form-group" >
+          <label>Supply Order Date</label>
+          <div class="input-group" >
+            <input type="text" class="form-control" show-weeks="false" uib-datepicker-popup="dd-MMMM-yyyy" ng-model="newPo.supplyOrderDate" is-open="supplyOrderDatee.opened"  ng-change="add()" />
+            <span class="input-group-btn">
+              <button type="button" class="btn btn-default" ng-click="supplyOrderDatee.opened = true;"><i class="glyphicon glyphicon-calendar"></i></button>
+            </span>
+          </div>
+        </div>
+       </div>
+      </div>
+    </div>
+  </div>
+    <div class="row" ng-if="workShow">
+    <div class="col-md-offset-2 col-md-8">
+       <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label>Work Order Number</label>
+            <input type="text" class="form-control" ng-model="newPo.workOrderNo"  placeholder="Work Order Number" ng-change="add()">
+         </div>
+       </div>
+        <div class="col-md-6">
+          <div class="form-group" >
+          <label>Work Order  Date</label>
+          <div class="input-group" >
+            <input type="text" class="form-control" show-weeks="false" uib-datepicker-popup="dd-MMMM-yyyy" ng-model="newPo.workOrderDate" is-open="workOrderDatee.opened"  ng-change="add()" />
+            <span class="input-group-btn">
+              <button type="button" class="btn btn-default" ng-click="workOrderDatee.opened = true;"><i class="glyphicon glyphicon-calendar"></i></button>
+            </span>
+          </div>
+        </div>
+       </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-offset-2 col-md-8">
+      <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+        <label>GFR Rule</label>
+        <input type="text" class="form-control" ng-model="newPo.gfrRule"  placeholder="GFR Rule">
+      </div>
+      </div>
+       <div class="col-md-4">
+         <div class="form-group">
+           <label>Quotation Number</label>
+           <input type="text" class="form-control" ng-model="newPo.quoteNo"  placeholder="Quotation Number">
+        </div>
+      </div>
+       <div class="col-md-4">
+         <div class="form-group" >
+         <label>Quotation Date</label>
+         <div class="input-group" >
+           <input type="text" class="form-control" show-weeks="false" uib-datepicker-popup="dd-MMMM-yyyy" ng-model="newPo.quoteDate" is-open="quoteDate.opened"  />
+           <span class="input-group-btn">
+             <button type="button" class="btn btn-default" ng-click="quoteDate.opened = true;"><i class="glyphicon glyphicon-calendar"></i></button>
+           </span>
+         </div>
+       </div>
+      </div>
+     </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-offset-2 col-md-8">
+       <div class="row">
+       <div class="col-md-4">
+          <div class="form-group">
+            <label>Sanction Autority</label>
+            <input type="text" class="form-control" ng-model="newPo.sanctionAutority"  placeholder="Sanction Autority">
+         </div>
+       </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label>Sanction Number</label>
+            <input type="text" class="form-control" ng-model="newPo.sanctionNo"  placeholder="Sanction Number">
+         </div>
+       </div>
+        <div class="col-md-4">
+          <div class="form-group" >
+          <label>Sanction Date</label>
+          <div class="input-group" >
+            <input type="text" class="form-control" show-weeks="false" uib-datepicker-popup="dd-MMMM-yyyy" ng-model="newPo.sanctionDate" is-open="sanctionedDate.opened"  />
+            <span class="input-group-btn">
+              <button type="button" class="btn btn-default" ng-click="sanctionedDate.opened = true;"><i class="glyphicon glyphicon-calendar"></i></button>
+            </span>
+          </div>
+        </div>
+       </div>
+      </div>
+    </div>
+  </div>
+    <div class="row">
+    <div class="col-md-offset-2 col-md-8">
+       <div class="row">
+       <div class="col-md-4">
+          <div class="form-group">
+            <label>Code Head</label>
+            <input type="text" class="form-control" ng-model="newPo.codeHead"  placeholder="Code Head">
+         </div>
+       </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label>Minor Head</label>
+            <input type="text" class="form-control" ng-model="newPo.minorHead"  placeholder="Minor Head">
+         </div>
+       </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label>Major Head</label>
+            <input type="text" class="form-control" ng-model="newPo.majorHead"  placeholder="Major Head">
+         </div>
+       </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-offset-2 col-md-8 text-right">
+      <button ng-click="savePo()" type="button" class="btn btn-default">
+        Save
+      </button>
+    </div>
+   </div>
+
+
+  <div class="row" ng-if="newPo.pk" style="padding-top:30px">
+    <div class="col-md-12">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Denominator</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+            <th>GST(%)</th>
+            <th>GST Amount</th>
+            <th>Grand Total</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="k in poitemList track by $index">
+            <td><input type="text" ng-model="k.name" style="width:100%"></td>
+            <td><input type="text" ng-model="k.denominator" style="width:100%"></td>
+            <td><input type="text" ng-model="k.rate" style="width:80%" ng-change="getVal($index)"></td>
+            <td><input type="text" ng-model="k.quantity" style="width:80%" ng-change="getVal($index)"></td>
+            <td><input type="text" ng-model="k.amount" style="width:80%" disabled></td>
+            <td><input type="text" ng-model="k.gst" style="width:80%" ng-change="getVal($index)"></td>
+            <td><input type="text" ng-model="k.gstAmount" style="width:80%" disabled></td>
+            <td><input type="text" ng-model="k.grandTotal" style="width:100%" disabled></td>
+            <td ng-click="saveEntry($index)"><i class="fa fa-floppy-o"></i></td>
+            <td ng-click="deleteEntry($index)"><i class="fa fa-trash-o"></i></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td ng-click="addPoItem()"><i class="fa fa-plus"></i></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

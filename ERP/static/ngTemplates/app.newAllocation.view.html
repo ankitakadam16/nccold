@@ -1,0 +1,64 @@
+<div class="modal-header">
+  </div>
+  <div class="modal-body">
+    <div class="row" ng-if="me.is_staff || me.is_superuser">
+      <div class="col-md-12">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Code Head</th>
+                  <th>Name</th>
+                  <th> Unit</th>
+                  <th>Allotment Amount</th>
+                  <th>Withdraw Amount</th>
+                  <th>Balance</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="k in allData">
+                  <td>#{{k.pk}}</td>
+                  <td>{{k.codeHead}}</td>
+                  <td>{{k.name}}</td>
+                  <td>{{k.unit.first_name}}</td>
+                  <td>{{k.allotmentAmount}}</td>
+                  <td>{{k.withdrawalAmount}}</td>
+                  <td>{{k.balance | number : 2}}</td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+      </div>
+      <div class="row" ng-if="!me.is_staff && !me.is_superuser">
+        <div class="col-md-12">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Code Head</th>
+                    <th>Name</th>
+                    <th> Date</th>
+                    <th>Contingment No</th>
+                    <th>Sanction No</th>
+                    <th>Sanction Date</th>
+                    <th>Description</th>
+                    <th>Amount</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="k in allData">
+                    <td>#{{k.pk}}</td>
+                    <td>{{k.codeHead}}</td>
+                    <td>{{k.name}}</td>
+                    <td>{{k.dated | date}}</td>
+                    <td>{{k.cont_no}}</td>
+                    <td>{{k.sanctioned_no}}</td>
+                    <td>{{k.created | date}}</td>
+                    <td>{{k.description}}</td>
+                    <td>{{k.allotmentAmount | number : 2}}</td>
+                  </tr>
+                </tbody>
+              </table>
+          </div>
+        </div>
+    </div>

@@ -1,0 +1,297 @@
+{% load i18n %} {% get_current_language as LANGUAGE_CODE %}
+
+<div class="row hidden-xs hidden-md" style=" background:url('/static/images/mainBanner.{{LANGUAGE_CODE}}.jpg') no-repeat right bottom;height:60vh;margin:0px;background-size: auto 100%;">
+  <img src="/static/images/image10.png" style="width:100%;height:100%" alt="">
+  <div style="position:absolute;top:200px;left:100px;width:30vw;">
+    <h3 style="color:white;">{% trans 'WelcomeHeading' %} </h3>
+  </div>
+</div>
+
+<div class="hidden-md hidden-lg">
+  <div class="row " style=" background:url('/static/images/mainBanner.{{LANGUAGE_CODE}}.jpg') no-repeat right bottom;height:20vh;margin:0px;background-size: auto 100%;margin-top:40px;">
+  </div>
+  <div class="row" style="margin:0px; background-color:#0f4b8d;">
+    <h3 style="color:white; text-align:center; padding:15px 0px">{% trans 'WelcomeHeading' %} </h3>
+  </div>
+</div>
+
+
+<!-- <div style="background-color:#0f4b8d; height:60vh; width:100%;">
+  <img style="clip-path:polygon(100% 60vh, 50% 60vh, 40% 50px, 100% 50px); width:100%;height:100%" src="/static/images/mainBanner.{{LANGUAGE_CODE}}.jpg" alt="">
+  <div style="position:absolute;top:200px;left:100px;width:30vw;">
+    <h3 style="color:white;">{% trans 'WelcomeHeading' %} </h3>
+  </div>
+</div> -->
+
+{% verbatim %}
+
+
+<div class="flex_section">
+  <div style="flex:45%; margin-top: 80px; order:1;">
+    <div class="content">
+      <h3>True digital innovation starts with your employees and teams</h3>
+      <p>They’re the people most passionate about your brand, campaigns and products. Enable their every idea for a true culture of innovation. Capture, govern and manage digital innovation across the enterprise. Dramatically improve the ROI of campaigns,
+        landing pages, checkouts and overall conversion.</p>
+      <div style="padding-top:15px;">
+        <a href="/products/program-management/" class="btn btn-primary btn-rounded">Learn More</a>
+      </div>
+    </div>
+  </div>
+  <div class="lineSvg" style="flex:10%; order:2; margin-top:50px; position:relative;">
+    <div style="position:absolute; top:0px; height:20px; left:6px;">
+      <div class="scroll-point"></div>
+      <span class="point-text">Ideate</span>
+    </div>
+    <div style="border-left:2px solid #818194; height:100px; position:absolute; top:20px; left:16px;"></div>
+    <div style="position:absolute; top:120px; left:0px; height:300px">
+      <img src="/static/images/Stroke.svg" alt="">
+    </div>
+    <div style="border-left:2px solid #818194;height:100px ; position:absolute; top:410px; left:16px;"></div>
+    <div style="position:absolute; top:510px; height:20px; left:6px;">
+      <div class="scroll-point"></div>
+      <span class="point-text">Experiment</span>
+    </div>
+  </div>
+  <ul class="personInfo" style="order:3;">
+    <li id="one">
+      <div style="flex:20%">
+        <div style="margin-top:25px;">
+          <img class="img-circle dp" src="https://res.cloudinary.com/dy8i0qezub/image/fetch/f_auto/https://images.ctfassets.net/zw48pl1isxmc/4lIxw6tMc8m80iAUsUEEWy/6d931e81bcb1fdd47a5bf6c87d10e34a/role-mkt-1.jpg" alt="">
+        </div>
+      </div>
+      <div style="flex:80%">
+        <div class="media-body">
+          <h5 class="text-uppercase">Product Manager</h5>
+          <blockquote>
+            <h6>How can we lower mobile cart abandonment?</h6>
+            <p>What if we try push notification reminders?</p>
+          </blockquote>
+        </div>
+      </div>
+    </li>
+    <li id="two">
+      <div style="flex:20%">
+        <div style="margin-top:25px;">
+          <img class="img-circle dp" src="https://res.cloudinary.com/dy8i0qezub/image/fetch/f_auto/https://images.ctfassets.net/zw48pl1isxmc/1IrhRRmzKsoY6oU8co8SYW/2b3272d0fa15c464a33f5ff2fc5535fb/role-mkt-2.jpg" alt="">
+        </div>
+      </div>
+      <div style="flex:80%">
+        <div class="media-body">
+          <h5 class="text-uppercase">Team Leader</h5>
+          <blockquote>
+            <h6>How can we lower mobile cart abandonment?</h6>
+            <p>What if we try push notification reminders?</p>
+          </blockquote>
+        </div>
+      </div>
+    </li>
+    <li id="three">
+      <div style="flex:20%">
+        <div style="margin-top:25px;">
+          <img class="img-circle dp" src="https://res.cloudinary.com/dy8i0qezub/image/fetch/f_auto/https://images.ctfassets.net/zw48pl1isxmc/qU5pQ44MxwuGKG84USqui/d5cd6e616c5fab97ba243b046046abb6/role-mkt-3.jpg" alt="">
+        </div>
+      </div>
+      <div style="flex:80%">
+        <div class="media-body">
+          <h5 class="text-uppercase">Developer</h5>
+          <blockquote>
+            <h6>How can we lower mobile cart abandonment?</h6>
+            <p>What if we try push notification reminders?</p>
+          </blockquote>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+
+<div class="flex_section" style="min-height:800px;">
+  <div class="circleDiv">
+    <ul class="circles" id="circles">
+      <li>
+        <div class="text-center" style="position:absolute; top:50%;transform:translateY(-50%); padding-left:20px;">
+          <figure style="font-size: 50px; color:#080738">$21M</figure>
+          <span style="letter-spacing:4px;">Incremental Revenue Impact</span><br>
+          <a style="font-size:13px;" href="#">Learn how HP did it</a>
+        </div>
+      </li>
+      <li>
+        <div class="text-center" style="color:#fff;;position:absolute; top:50%;transform:translateY(-50%); padding-left:50px;">
+          <figure style="font-size: 30px;">+300%</figure>
+          <span>Click-through uplift</span><br>
+          <a style="font-size:13px; color:#fff" href="#">Read the Missguided case study</a>
+        </div>
+      </li>
+      <li>
+        <div class="text-center" style="color:#080738;;position:absolute; top:50%;transform:translateY(-50%); padding-left:75px;">
+          <figure style="font-size: 50px;">-80%</figure>
+          <span>Decrease in return rate</span><br>
+          <a style="font-size:13px; color:blue" href="#">Read the Brooks case study</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="lineSvg" style="flex:10%; order:2;position:relative;">
+    <div style="position:absolute; top:0px; height:20px; left:6px;">
+      <div class="scroll-point"></div>
+      <span class="point-text">Impliment</span>
+    </div>
+    <div style="position:absolute; top:16px; left:-13px;">
+      <img src="https://images.ctfassets.net/zw48pl1isxmc/32U70oRSM8MWEWcEEyg6uS/2fd45782ccbbdd906e2f07d73ff8618e/curvy-2.svg" height="800px" width: "100%" alt="">
+    </div>
+    <div style="position:absolute; top:800px; height:20px; left:6px;">
+      <div class="scroll-point"></div>
+      <span class="point-text">Repeat</span>
+    </div>
+  </div>
+  <div class="content_box" style="">
+    <div class="content">
+      <h3>Let the data determine your baseline, your winning ideas and the losers</h3>
+      <p>Know the future impact of new offers, copy, CTA’s, performance improvements and more. Armed with the accuracy of Stats Engine, never again guess at which offers will work and which won’t. Just try them all.Accelerate campaign throughput while massively
+        improving marketing ROI. </p>
+      <div style="padding-top:15px;">
+        <a href="/products/program-management/" class="btn btn-primary btn-rounded">Learn More</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="blog_section shaddowed" style="min-height:600px; border-radius:10px;">
+  <div class="col-md-6 col-sm-12" style="padding-left:0px;">
+    <div class="blogimg">
+      <div id="date">
+        <span style="font-size:24px;font-weight:500;color:#fff;">27 November 2018</span><br><br>
+        <span style="font-size:34px;font-weight:700;color:#fff">RPA Adoption: Top-down or Bottom-up?</span>
+      </div>
+    </div>
+    <div style="padding:20px;">
+      <p style="color:#002855;font-size: 15px;line-height: 1.7;">It has been a fascinating journey so far to watch the adoption of RPA technology among client organizations. We have observed several different paths to adoption while everyone is still wondering if there is one template for the best approach.
+      </p>
+      <button type="button" style="background-color:#ff6900;border:none;" class="btn btn-warning bigbtn" name=""><b>Read Article</b> </button>
+    </div>
+  </div>
+  <div class="col-md-6  col-sm-12" style="background-color:rgba(245,248,250,.5);margin-top:10px;">
+    <div class="row" ng-repeat="i in articles" style="margin-bottom:20px; padding-left:10px;{{$odd ? 'background:#fff;':''}};">
+      <div class="col-xs-2 articleImg">
+        <div class="text-center" style="">
+          <span style="font-size:1.875em;color:#fff;"> <strong>21</strong></span><br>
+          <span style="font-size:0.875em;color:#fff;">Nov</span>
+        </div>
+      </div>
+      <div class="col-xs-9">
+        <div id="articleHead">
+          <span style="font-size:1.2em;font-weight:700;color:#09075c"> RPA technology among client organizations cool text here. Great yeaa...</span><br>
+          <span class="text-primary"><strong>Read More...</strong></span>
+        </div>
+      </div>
+    </div>
+    <button type="button" class="btn btn-primary" style="margin-bottom:15px;">See More Articles</button>
+  </div>
+</div>
+
+
+<div class="blog_section" style="background-color:#fff;">
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-4">
+        <div style=" min-height: 320px;border: 0px solid blue;">
+          <h3 style="font-size:36px;color:#002855;font-weight:600;"> <br> <span>Why you’ll love the EpsilonAI Enterprise RPA Platform</span></h3>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class=" item">
+          <div>
+            <img src="/static/images/ecosystem.svg" width="70px" alt="Open Platform">
+          </div>
+          <h3 class="Title">Open Platform</h3>
+          <p class="Desc"><span>Our open and extensible platform features hundreds of built-in, customizable, shareable activities, and deep integrations with ERP, BPM and AI technologies.</span></p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="item">
+          <div>
+            <img src="/static/images/fast-roi.svg" alt="Rapid Results">
+          </div>
+          <h3 class="Title">Rapid Results</h3>
+          <p class="Desc"><span>Tested and proven to deliver 40%+ faster automation design and deployment than competitors, UiPath offers worldwide implementation support, certified training.</span></p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="item">
+          <div>
+            <img src="/static/images/ai-enabled.svg" alt="Path to AI">
+          </div>
+          <h3 class="Title">Path to AI</h3>
+          <p class="Desc"><span style="">Built-in intelligent OCR, integrated NLP services from Google, Watson and Microsoft, and deep learning to reduce maintenance.</span></p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="item">
+          <div>
+            <img src="/static/images/flexibility.svg" alt="Scalability">
+          </div>
+          <h3 class="Title">Scalability</h3>
+          <p class="Desc"><span>Deploy RPA at enterprise scale. Manage any variety and any number of processes from front to back-office regardless of complexity.</span></p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="item">
+          <div>
+            <img src="/static/images/security.svg" width="70px" alt="Security">
+          </div>
+          <h3 class="Title">Security</h3>
+          <p class="Desc"><span>Defense-grade security and auditing includes RBAC, encryption everywhere, and Veracode certified Code. Our technology is trusted as secure by 40+ agencies.</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row" style="margin:0px;">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-12">
+      <ng-owl-carousel class="owl-theme" owl-items="friends" owl-properties="properties" owl-ready="ready($api)">
+        <div ng-repeat="a in friends" style="padding:10px;">
+          <div class="anim-in-out anim-zoom-out">
+            <div style="padding:20px;">
+              <img class="img" ng-src="{{a.dp}}" />
+            </div>
+          </div>
+        </div>
+      </ng-owl-carousel>
+    </div>
+  </div>
+</div>
+
+<div class="row" style="margin:0px;padding:20px;background: url('/static/images/footer-bg-v1.png');color:white;">
+  <div class="col-md-5 hidden-xs hidden-sm text-right">
+    <h4>Get Regular Blog Updates</h4>
+  </div>
+  <div class="col-xs-12 hidden-md hidden-lg text-center">
+    <h4>Get Regular Blog Updates</h4>
+  </div>
+  <div class="col-md-3">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Email ID">
+      <span class="input-group-btn">
+        <button type="button" class="btn btn-warning">Subscribe</button>
+      </span>
+    </div>
+  </div>
+</div>
+
+<div class="row" style="margin:0px;background: url('/static/images/footer-bg.jpg');background-repeat: no-repeat;background-size: cover;">
+  <div class="col-md-8 col-md-offset-2 text-center" style="color:#fff;padding:130px 0px;">
+    <h1> <strong>Ready to take the lead?</strong></h1> <br>
+    <h4>Choose open, extensible, secure automations</h4> <br>
+    <button type="button" style="background-color:#ff6900;border:none;" class="btn btn-warning bigbtn" name=""><b>Get Started with Go!</b> </button>
+    <!-- <button type="button" class="btn btn-warning btn-lg text-center big-xl" style="margin-top:10px;">
+      <strong>Get Started with Go!</strong>
+    </button> -->
+
+
+
+{% endverbatim %}

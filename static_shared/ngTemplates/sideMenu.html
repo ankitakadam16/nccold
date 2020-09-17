@@ -1,0 +1,56 @@
+<div class="" ng-controller="sideMenu" style="">
+
+  <!-- <div class="row" style="{{sideMenuVisibility ? 'border-bottom:solid 2px #eeeeee;':''}}">
+    <div class="container-fluid" style="padding:0px!important">
+      <div class="col-md-3 basicAppLink text-center" ng-repeat="a in fixedApps" ng-class="{active: $state.is(a.state)}" ng-click="$state.go(a.state)">
+        <span>
+          <i class="fa fa-{{a.icon}} fa-2x"></i>
+        </span>
+      </div>
+    </div>
+  </div> -->
+
+  <div class="row">
+    <div class="container-fluid" style="padding:0px!important">
+      <ul class="nav nav-sidebar padded" style="width:100%;">
+        <li ng-repeat="a in apps" style="width:transition:10s">
+          <a ui-sref="{{a.state}}" >
+            <div  align="left">
+              <div class="row container-fluid">
+                <!-- <div class="col-md-3">
+                  <i class="fa {{a.icon}} fa-2x"></i>
+                </div> -->
+                <div class="col-md-12">
+                  {{a.description }}
+                </div>
+              </div>
+            </div>
+            <!-- <div ng-if="!sideMenuVisibility" align="left" style="padding-bottom:30px;overflow-x:visible;">
+              <span ng-if="onHover" style="float:right;">{{a.description}}</span>
+            </div> -->
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <ul class="nav nav-sidebar padded" style="width:100%;position:absolute; bottom:.5rem; cursor:pointer;left:0px ">
+  <li style="text-align:center;"><a href="" ng-click="openSettings('right' , false , settings )"><i class="fa fa-key "></i> Change Password</a></li>
+  <li style="text-align:center;">
+    <!-- <img  ng-src="{{me.pk| getDP}}" class="img img-circle dropdown-toggle" style="width:45px;height:45px;" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" onerror="this.src = '/static/images/img_avatar_card.png'"> -->
+    <a href="/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+    <!-- <ul class="dropdown-menu" style="position: absolute;top: -300px;left: 94px;">
+        <li><img class="img-responsive" width="200px" onerror="this.src = '/static/images/img_avatar_card.png'" ng-src="{{me.pk| getDP}}" style="top:-5px; position:relative; width:200px"></li>
+      <li>
+        <div style="text-align:center; -moz-user-select: none;color:grey;">{{me.first_name}} {{me.last_name}} </div>
+      </li>
+      <li>
+        <div style="text-align:center; -moz-user-select: none;color:grey;">{{me.email}} </div>
+      </li>
+      <li role="separator" class="divider"></li>
+      <li><a href="" ng-click="openSettings('right' , false , settings )"><i class="fa fa-gears fa-fw"></i> Settings</a></li>
+      <li><a href="/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
+    </ul> -->
+  </li>
+
+</ul>
+</div>

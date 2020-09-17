@@ -1,0 +1,228 @@
+{% load staticfiles%} {% load staticfiles %} {% load socialaccount %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Login</title>
+  <meta name="theme-color" content="#d47921">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="fb:app_id" content="1690799947851449">
+  <link rel="profile" href="http://gmpg.org/xfn/11">
+  {% if useCDN %}
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" charset="utf-8"> {% else %}
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" charset="utf-8">
+  <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" charset="utf-8"> {% endif %}
+  <!-- <link rel="stylesheet" href="{% static 'css/signin.css' %}" charset="utf-8"> -->
+</head>
+
+<body style="height:100%;font-family:{{font}}!important;background:{{theme_color}}">
+  <div class="col-md-8 hidden-sm hidden-xs" style="background-image: url('{{backgroundImage}}');background-size: cover;height:100%;position:absolute;left:0px;">
+  </div>
+  <div class="col-md-4 col-sm-12 col-xs-12" style="height:100%;position:absolute;right:0px;padding-top:20px;padding:40px;">
+    <a style="outline: none;border:none" href="/"><img class="text-center" src="{{icon_logo}}" alt="" width="100%" Style="display:block;margin-left: auto;margin-right: auto;"></a>
+
+
+      <hr>
+      <div class="row text-center">
+        <span style="color:white;font-size:25px;">Login</span>
+      </div>
+
+      {% if authStatus.status != 'default' %}
+      <div class="alert alert-{{authStatus.status}}">{{authStatus.message}}</div>
+      {% endif %}
+
+      <div id="alerts">
+
+      </div>
+
+      <form class="" action="" method="post">
+        <div class="row" style="margin:0px;margin-top:50px;">
+          <!-- <div class="col-md-2 col-sm-2 col-xs-2 text-right" style="padding-top:10px">
+            <span>+91</span>
+          </div> -->
+          <div class=" col-md-12 col-sm-12 col-xs-12">
+            <label for="username" class="sr-only">Mobile Number</label>
+            <div class ="input-group">
+              <span class="input-group-addon"> +91</span>
+              <input id="username" name="username" type="text" maxlength="10" class="form-control" placeholder="10-digit mobile number / Username" required autofocus>
+              <span class="input-group-addon"  id="requestOTP" style="cursor:pointer;">
+                Get OTP
+                <!-- <button id="requestOTP" class="btn btn-default" type="button">Get OTP</button> -->
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12  col-xs-12  col-sm-12 ">
+          <label for="password" class="sr-only">Password</label>
+          <input id="password" name="password" type="password" class="form-control" placeholder="Password" required style="margin-top:10px">
+          <button id="signIn" style="margin-bottom:20px; margin-top:10px;background: #d47921;border-color: #d47921;" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        </div>
+      </form>
+
+      <div class="col-md-12 col-xs-12 col-sm-12 ">
+        <a style="color:black;" href="registerPage">New User?</a>
+      </div>
+
+
+    <form class="" action="/register" method="post" style="display:none;" id="regFrm">
+      {% csrf_token %}
+      <input type="text" name="mobile" value="" id="regMobile">
+    </form>
+    <div class="row">
+      <div class="col-md-6 col-sm-6 col-xs-12 text-center" style="margin-top:40px;">
+        <a title="Google" class="btn btn-default" href="{% provider_login_url "google" method="oauth2" %}" style="background:#D47921;color:white;padding:0px;border: 2px solid #D47921;" >
+          <!-- <i class="fa fa-google fa-2x"></i> Google -->
+          <img src="/static/images/google.png" style="height:5vh"/> &nbsp;&nbsp; Sign in with Google &nbsp;&nbsp;
+        </a>
+      </div>
+      <div class="col-md-6 col-sm-6 col-xs-12 text-center" style="margin-top:40px">
+        <a href="{% provider_login_url "facebook" method="oauth2" %}" class="btn btn-primary" style="background:#d47921;color:white;padding:0px;border:#d47921">
+          <!-- <i class="fa fa-facebook fa-2x"></i> Facebook -->
+          <img src="/static/images/facebook.jpg" style="height:5vh"/> &nbsp;&nbsp; Sign in with Facebook &nbsp;
+        </a>
+
+    </div>
+  </div>
+    <div class="col-md-12 hidden-sm hidden-xs text-right" style='bottom:0;right:0;position:fixed'>
+      <a href="/login/?next=/ERP/">Admin Login</a>
+    </div>
+  </div>
+
+  {% if useCDN %}
+  <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  {% else %}
+  <script src="{% static 'js/jquery-2.1.4.min.js' %}"></script>
+  <script src="{% static 'js/jquery.cookie-1.4.1.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  {% endif %}
+
+  <script type="text/javascript">
+    function setCookie(cname, cvalue, exdays) {
+      var d = new Date();
+      d.setTime(d.getTime() + (exdays*24*60*60*1000));
+      var expires = "expires="+ d.toUTCString();
+      document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
+
+    function getCookie(cname) {
+      var name = cname + "=";
+      var decodedCookie = decodeURIComponent(document.cookie);
+      var ca = decodedCookie.split(';');
+      for(var i = 0; i <ca.length; i++) {
+          var c = ca[i];
+          while (c.charAt(0) == ' ') {
+              c = c.substring(1);
+          }
+          if (c.indexOf(name) == 0) {
+              return c.substring(name.length, c.length);
+          }
+      }
+      return "";
+    }
+      document.getElementById('requestOTP').addEventListener('click',function(){
+        var id = document.getElementById('username').value;
+        if(id.length == 0){
+          document.getElementById('alerts').innerHTML='<div class="alert alert-warning">Please enter your Mobile number or Email or Username</div>'
+        }
+        else{
+          var csrf = getCookie("csrftoken")
+          var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+              if (this.readyState == 4 && this.status == 200) {
+                document.getElementById('alerts').innerHTML='<div class="alert alert-success">OTP Has been sent</div>'
+                document.getElementById('password').setAttribute("placeholder", "OTP");
+                document.getElementById('password').setAttribute("name", "otp");
+                document.getElementById('password').setAttribute("type", "text");
+              }
+              else if(this.status == 400){
+                  document.getElementById('alerts').innerHTML='<div class="alert alert-danger">No account</div>'
+              }
+              else if(this.status == 500){
+                document.getElementById('alerts').innerHTML='<div class="alert alert-danger">Error while sending OTP</div>';
+              }
+              else if(this.status == 404){
+                document.getElementById('alerts').innerHTML='<div class="alert alert-danger">You Have No Account , We Are Creating New Account For You</div>';
+                document.getElementById('alerts').value = document.getElementById('username').value
+                document.getElementById('regFrm').submit();
+              }
+              document.getElementById('requestOTP').innerHTML="";
+              document.getElementById('requestOTP').innerText="Resend OTP";
+            };
+            var formData = "id="+id+"&csrfmiddlewaretoken="+csrf+
+            xhttp.open("POST", "/generateOTP");
+            console.log(formData);
+
+            xhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded")
+            xhttp.setRequestHeader("Content-length", formData.length);
+            xhttp.send(formData);
+
+        }
+    })
+
+
+
+    // $(document).ready(function() {
+    //   // $('#password').hide();
+    //   // $('#signIn').hide();
+    //
+    //   $('#requestOTP').click(function(e) {
+    //
+    //     $('#alerts').empty();
+    //     var id = $('#username').val()
+    //     if (id.length == 0) {
+    //       $('#alerts').append('<div class="alert alert-warning">Please enter your Mobile number or Email or Username</div>')
+    //     } else {
+    //       console.log(id, 'kkkkkkkkkkkkkkkkkkkkkkkkk')
+    //       var csrf = $.cookie("csrftoken")
+    //       console.log(csrf,'tokkkkkkkeeeeeeeeennnnnn');
+    //       $.ajax({
+    //         url: '/generateOTP',
+    //         data: {
+    //           id: id,
+    //           csrfmiddlewaretoken: csrf
+    //         },
+    //         beforeSend: function(request) {
+    //           request.setRequestHeader("X-CSRFToken", csrf);
+    //         },
+    //         type: 'POST',
+    //         success: function(data, status, jqXHR) {
+    //           console.log(status);
+    //           if (jqXHR.status == 200) {
+    //             $('#alerts').append('<div class="alert alert-success">OTP Has been sent</div>')
+    //             $('#password').attr("placeholder", "OTP");
+    //             $('#password').attr("name", "otp");
+    //             $('#password').attr("type", "text");
+    //
+    //           } else if (jqXHR.status == 400) {
+    //             $('#alerts').append('<div class="alert alert-danger">No account</div>')
+    //
+    //           } else {
+    //             $('#alerts').append('<div class="alert alert-danger">Error while sending OTP</div>');
+    //
+    //           }
+    //
+    //           $('#otptxt').empty();
+    //           $('#otptxt').append("Resend OTP");
+    //         },
+    //         error: function(e) {
+    //           console.log($('#regMobile')[0].name, $('#username').val());
+    //           $('#alerts').append('<div class="alert alert-danger">You Have No Account , We Are Creating New Account For You</div>')
+    //           $('#regMobile')[0].value = $('#username').val();
+    //           $('#regFrm').submit();
+    //
+    //         }
+    //       });
+    //
+    //     }
+    //   });
+    // });
+  </script>
+
+</body>
+
+</html>

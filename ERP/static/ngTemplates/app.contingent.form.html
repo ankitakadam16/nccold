@@ -1,0 +1,163 @@
+<div class="container-fluid" style="margin-top:30px">
+  <div class="row">
+    <div class="col-md-offset-2 col-md-8">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label>Invoice Date</label>
+            <div class="input-group">
+              <input type="text" class="form-control" show-weeks="false" uib-datepicker-popup="dd-MMMM-yyyy" ng-model="form.invoiceDate" is-open="doj.opened" />
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="doj.opened = true;"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label>Invoice Number</label>
+            <input type="text" class="form-control" ng-model="form.invoiceNo" required placeholder="Invoice Number">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label>Posting Date</label>
+            <!-- <div class="input-group"> -->
+              <input type="text" class="form-control" show-weeks="false" uib-datepicker-popup="dd-MMMM-yyyy" ng-model="form.postingDate"  disabled/>
+              <!-- <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="doj.opened = true;"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span> -->
+            <!-- </div> -->
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label>Amount</label>
+            <input type="text" class="form-control" ng-model="form.amount" required placeholder="Mobile number">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label>Subject</label>
+            <input type="text" class="form-control" ng-model="form.subject" required placeholder="Subject">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label>Unit File No</label>
+            <input type="text" class="form-control" ng-model="form.unitFileNo" required placeholder="Unit File No">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label>CRV No</label>
+            <input type="text" class="form-control" ng-model="form.crvNo" required placeholder="CRV No">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label>CRV Date</label>
+            <div class="input-group">
+              <input type="text" class="form-control" show-weeks="false" uib-datepicker-popup="dd-MMMM-yyyy" ng-model="form.crvDate" is-open="dojC.opened" />
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="dojC.opened = true;"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label>Account Ledger</label>
+            <input type="text" class="form-control" ng-model="form.accntLedger" required placeholder="Account Ledger">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label>Purchase Order</label>
+            <select class="form-control" ng-model="form.po"  ng-options="p.pk  for p in poList"  >
+            </select>
+          </div>
+        </div>
+        <!-- <div class="col-md-2">
+          <button class="btn btn-primary btn-block" style="margin-top:25px"> Adopt </button>
+        </div> -->
+        </div>
+        <div class="row" style="padding-top:30px" ng-if="form.po.pk">
+      		<div class="col-md-12">
+      			<table class="table table-bordered">
+      			    <thead>
+      			      <tr>
+      			        <th>Ser</th>
+      			        <th>Item</th>
+      			        <th>Deno</th>
+      			        <th>Qty</th>
+      			        <th>Rate</th>
+                     <th>GST % </th>
+      			        <th>Amount</th>
+      			      </tr>
+      			    </thead>
+      			    <tbody>
+      			      <tr ng-repeat="a in form.po.poItems">
+      			        <td>{{$index+1}}</td>
+      			        <td>{{a.name}}</td>
+      			        <td>{{a.denominator}}</td>
+      			        <td>{{a.quantity}}</td>
+      			        <td>{{a.rate | number : 2}}</td>
+                    <td>{{a.gst | number : 1}}</td>
+      			        <td>{{a.grandTotal | number : 2}}</td>
+      			      </tr>
+      						<tr >
+      							<td></td>
+      							<td></td>
+      							<td></td>
+      							<td></td>
+                    <td></td>
+      							<td><strong>Total Amount</strong></td>
+      							<td><strong>{{form.po.poTotal | number : 2 }}</strong></td>
+      						</tr>
+      						<tr >
+      							<td></td>
+      							<td></td>
+      							<td></td>
+      							<td></td>
+                    <td></td>
+      							<td><strong>GST @ %</strong></td>
+      							<td><strong>Inclusive</strong></td>
+      						</tr>
+      						<tr >
+      							<td></td>
+      							<td></td>
+      							<td></td>
+      							<td></td>
+                    <td></td>
+      							<td><strong>Grand Total (INR)</strong></td>
+      							<td><strong>{{form.po.poTotal | number : 2}}</strong></td>
+      						</tr>
+      			    </tbody>
+      			  </table>
+      		</div>
+      	</div>
+        <div class="row">
+          	<div class="col-md-2">
+              <button class="btn btn-primary btn-block" ng-click="save()">  Save</button>
+            </div>
+        </div>
+      </div>
+      <div class="col-md-2" ng-if="form.pk">
+        	<a href="/api/ERP/downloadcontingent/?id={{form.pk}}" target="_blank"><i class="fa fa-download fa-2x pull-right" > </i></a>
+      </div>
+    </div>
+  </div>
+</div>

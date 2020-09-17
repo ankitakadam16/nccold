@@ -1,0 +1,164 @@
+<div class="container-fluid" >
+<div class="row">
+<div class="col-md-offset-2 col-md-8">
+	<div class="row">
+		<div class="col-md-12 text-center">
+		<h4 style=" text-decoration: underline;"> SANCTION OF EXPENDITURE UNDER ATG/AMENITY/IT  </h4>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12 text-center">
+			<img src="/static/images/download.png" alt="" style="height:100px;width:100px">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12" style="padding-top:30px">
+				<table class="table table-bordered">
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>Broad Purpose of Sanction</td>
+							<td></td>
+							<td>Subject</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>Govt Authority or Schedule/Sub-Schedule of Power under which the sanction /order is being issued</td>
+							<td></td>
+							<td>0106/DGNCC/Pers/B&F/335/A/D(GS-VI) dt 11 Apr 1990 and 0106/DGNCC/Bud 2435/D(GS-VI/2001 dt 31 Oct 2001</td>
+						</tr>
+					<!-- </tbody>
+				</table>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12"> -->
+		<tr>
+			<td>3</td>
+			<td colspan="3">
+			<div class="row" style="padding-top:30px">
+			<div class="col-md-12" style="padding-right:0px">
+				<table class="table table-bordered">
+				    <thead>
+				      <tr>
+				        <th>Ser</th>
+				        <th>Item</th>
+				        <th>Deno</th>
+				        <th>Qty</th>
+				        <th>Rate</th>
+				        <th>Amount</th>
+				      </tr>
+				    </thead>
+				    <tbody>
+				      <tr ng-repeat="a in newPo.poItems">
+				        <td>{{$index+1}}</td>
+				        <td>{{a.name}}</td>
+				        <td>{{a.denominator}}</td>
+				        <td>{{a.quantity}}</td>
+				        <td>{{a.rate| number : 2 }}</td>
+				        <td>{{a.grandTotal| number : 2 }}</td>
+				      </tr>
+							<tr >
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td><strong>Total Amount</strong></td>
+								<td><strong>{{newPo.poTotal | number : 2 }}</strong></td>
+							</tr>
+							<tr >
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td><strong>GST @ %</strong></td>
+								<td><strong>Inclusive</strong></td>
+							</tr>
+							<tr >
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td><strong>Grand Total (INR)</strong></td>
+								<td><strong>{{newPo.poTotal | number : 2}}</strong></td>
+							</tr>
+				    </tbody>
+				  </table>
+			</div>
+			<!-- <div class="col-md-2" >
+				<div class="row" style="padding-top:35%">
+				{{newPo.vendorName}}<br/>{{newPo.vendorAddress}}
+				</div>
+
+			</div> -->
+		</div>
+	</td>
+</tr>
+	<!-- </div>
+	</div>
+	<div class="row">
+		<div class="col-md-12" style="padding-top:30px">
+				<table class="table table-bordered">
+					<tbody> -->
+						<tr>
+							<td>4</td>
+							<td>Major Head</td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>5</td>
+							<td>Minor Head</td>
+							<td></td>
+							<td>{{newPo.minorHead}}</td>
+						</tr>
+						<tr>
+							<td>6</td>
+							<td>Sub Head</td>
+							<td></td>
+							<td>F-2, Expenditure on other training activity</td>
+						</tr>
+						<tr>
+							<td>7</td>
+							<td>Code Head</td>
+							<td></td>
+							<td>{{newPo.codeHead}}</td>
+						</tr>
+						<tr>
+							<td>8</td>
+							<td>Balance funds available , taking into account committed liabilities, before sanction of this case </td>
+							<td></td>
+							<td>BALANCE OF UNIT FUND</td>
+						</tr>
+						<tr>
+							<td>9</td>
+							<td>Name of paying Agency </td>
+							<td></td>
+							<td>PCDA Bangalore</td>
+						</tr>
+						<tr>
+							<td>10</td>
+							<td>Whether being issued under inherent powers or with concurrence of IFA </td>
+							<td></td>
+							<td>issued under inherent</td>
+						</tr>
+						<tr>
+							<td>11</td>
+							<td>U.O number allotted by IFA</td>
+							<td></td>
+							<td> NA</td>
+						</tr>
+						<tr>
+							<td>12</td>
+							<td colspan="3">Communication of sanction being signed by the undersigned under power delegated by CFA to sign such financial documents vide CFA’s letter number 0106/DGNCC/Bud2435/D(GS-VI/2001 dated 31 Oct 2001</td>
+						</tr>
+					</tbody>
+				</table>
+		</div>
+	</div>
+</div>
+<div class="col-md-2">
+	<a href="/api/ERP/downloadsanction/?id={{newPo.pk}}" target="_blank"><i class="fa fa-download fa-2x pull-right" > </i></a>
+</div>
+</div>
+</div>

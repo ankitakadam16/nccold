@@ -1,0 +1,67 @@
+<div class="shaddowed card bg-white" style="min-height:93vh;">
+  <breadcrumb></breadcrumb>
+  <div class="container-fluid">
+    <div class="row" style="margin-top:20px;margin-bottom:20px;">
+      <div class="col-md-offset-3 col-md-2">
+        <button type="button" class="btn btn-sm btn-primary btn-block" style="padding:8px" ng-click="$state.go('businessManagement.vendor')">Create Vendor</button>
+      </div>
+      <div class="col-md-5">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search" ng-model="search.searchText" ng-change="viewVendors()">
+          <div class="input-group-btn">
+            <button class="btn btn-default" type="submit" ng-click="refresh()">
+              <i class="fa fa-refresh"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-1">
+        <button type="button" class="btn btn-sm btn-primary btn-block" style="padding:8px 18px" ng-click="prev()">Prev</button>
+      </div>
+      <div class="col-md-1">
+        <button type="button" class="btn btn-sm btn-primary btn-block " style="padding:8px 18px" ng-click="next()">Next</button>
+      </div>
+    </div>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Phone</th>
+          <th>Address</th>
+          <!-- <th>City</th>
+          <th>State</th>
+          <th>Pincode</th> -->
+          <th>GST</th>
+          <th>Bank Ac Number</th>
+          <th>IFSC</th>
+          <th>PAN Card</th>
+          <th>Proprietor Name</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="k in vendorsList">
+          <td>{{k.pk}}</td>
+          <td>{{k.name}}</td>
+          <td>{{k.phone}}</td>
+          <td>{{k.address}}</td>
+          <!-- <td>{{k.city}}</td>
+          <td>{{k.state}}</td>
+          <td>{{k.pincode}}</td> -->
+          <td>{{k.gst}}</td>
+          <td>{{k.bankACno}}</td>
+          <td>{{k.ifsc}}</td>
+          <td>{{k.panNumber}}</td>
+          <td>{{k.properiterName}}</td>
+            <td><a href="/api/ERP/vendorDownload/?id={{k.pk}}"> <i class="fa fa-download fa-2x"></i> </a></td>
+          <td><i class="fa fa-trash fa-2x" ng-click="deleteVendor(k.pk, $index)"></i></td>
+          <td><i ng-click="$state.go('businessManagement.editVendor',{'id' : k.pk})" class="fa fa-pencil fa-2x"></i></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

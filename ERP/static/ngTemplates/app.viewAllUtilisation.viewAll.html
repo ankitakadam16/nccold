@@ -1,0 +1,52 @@
+<div class="modal-body">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h3>  Details Of Budget Utilisation </h3>
+      </div>
+  </div>
+  <div class="row" >
+    <div class="col-md-12">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>SER</th>
+            <th>Code Head</th>
+            <th>Minor Head</th>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Contingent Bill No</th>
+            <th>Sanction Date</th>
+            <th>Sanction Number</th>
+            <th>Utilisation</th>
+            <th>Percentage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr  >
+            <td>#{{$index+1}}</td>
+            <td  >{{k.codeHead}}</td>
+            <td  >{{k.minorHead}}</td>
+            <td>{{k.name}}</td>
+            <td>{{k.created | date}}</td>
+            <td></td>
+            <td>{{k.allotmentAmount}}</td>
+            <td>{{k.allotmentAmount}}</td>
+            <td>{{k.allotmentAmount}}</td>
+            <td>{{k.allotmentAmount}}</td>
+          </tr>
+          <tr >
+            <td></td>
+            <td  ></td>
+            <td  ></td>
+            <td  ></td>
+            <td></td>
+            <!-- <td>{{k.unit.first_name}}</td> -->
+            <td></td>
+            <td><strong>{{d.total}}</strong></td>
+            <!-- <td><i ng-if="me.is_staff || me.is_superuser" ng-click="createAllotment('edit' , $index);$event.stopPropagation();" class="fa fa-plus "></i> <i ng-if="!me.is_staff && !me.is_superuser" ng-click="createUserAllotment('edit' , $index);$event.stopPropagation();" class="fa fa-plus "></i>  </td> -->
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>

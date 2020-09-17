@@ -1,0 +1,39 @@
+<div class="modal-body">
+<div class="row">
+<div class="col-md-12" >
+  <h4 style="text-align:center;">{{form.pk?'Edit':'Create'}} Allotment</h4>
+  <div class="form-group" >
+    <label>Code Head</label>
+    <input type="text" class="form-control" ng-model="form.codeHead" required  placeholder="Enter Code Head">
+  </div>
+  <div class="form-group" >
+    <label>Minor Head</label>
+    <input type="text" class="form-control" ng-model="form.minorHead" required  placeholder="Enter Minor Head">
+  </div>
+  <div class="form-group" >
+    <label>Name</label>
+    <input type="text" class="form-control" ng-model="form.name" required  placeholder="Enter Name">
+  </div>
+    <div class="form-group" >
+  <label>Date</label>
+  <div class="input-group" >
+    <input type="text" class="form-control" show-weeks="false" uib-datepicker-popup="dd-MMMM-yyyy" ng-model="form.dated" is-open="status.opened"  />
+    <span class="input-group-btn">
+      <button type="button" class="btn btn-default" ng-click="status.opened = true;"><i class="glyphicon glyphicon-calendar"></i></button>
+    </span>
+  </div>
+  </div>
+  <!-- <div class="form-group">
+    <label>Unit</label>
+    <input type="text"  uib-typeahead="u as u.first_name + ' ' + u.last_name  for u in unitSearch($viewValue)" class="form-control" ng-model = "form.unit" required placeholder="Select Unit">
+  </div> -->
+  <div class="form-group">
+    <label>Amount</label>
+    <input type="text" class="form-control" ng-model="form.allotmentAmount" required placeholder="Enter Amount">
+  </div>
+  <button ng-click="saveAllocation()" type="button" class="btn btn-default">
+    Save
+  </button>
+</div>
+</div>
+</div>

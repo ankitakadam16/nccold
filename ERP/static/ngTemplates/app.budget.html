@@ -1,0 +1,38 @@
+<div class="shaddowed card bg-white" style="min-height:93vh;">
+  <breadcrumb></breadcrumb>
+  <div class="container-fluid">
+    <iv class="row">
+      <div class="col-md-offset-10 col-md-2">
+        <button class="btn btn-primary" ng-click="createAllotment()"> Create Self Alloment </button>
+        </div>
+    </div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>SER</th>
+          <th>Code Head</th>
+          <th>Minor Head</th>
+          <th>Name</th>
+          <th>Date</th>
+          <th style="cursor:pointer">Allotment Amount</th>
+          <th  style="cursor:pointer">Utilisation Amount</th>
+          <th>Balance</th>
+          <th>Allotment for unit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="k in allotmentList track by $index" >
+          <td>#{{$index+1}}</td>
+          <td  >{{k.codeHead}}</td>
+          <td  >{{k.minorHead}}</td>
+          <td>{{k.name}}</td>
+          <td>{{k.dated | date}}</td>
+          <td>{{k.allotmentAmount}}</td>
+          <td>{{k.withdrawalAmount}}</td>
+          <td>{{k.balance}}</td>
+          <td> <button ng-click="allot($index)" class="btn btn-primary">Allot</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

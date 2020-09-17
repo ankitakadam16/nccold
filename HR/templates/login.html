@@ -1,0 +1,195 @@
+{% load staticfiles%} {% load staticfiles %} {% load socialaccount %}
+
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Login</title>
+  {% if useCDN %}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" charset="utf-8">
+  {% else %}
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" charset="utf-8">
+  <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" charset="utf-8">
+  <link rel="stylesheet" href="{% static 'css/signin.css' %}" charset="utf-8">
+</head>
+<style media="screen">
+  body {
+    background-color: #F8FAFB;
+  }
+
+  .floating-label {
+    position: relative;
+  }
+
+  .floating-input {
+    font-size: 14px;
+    padding: 4px 4px;
+    display: block;
+    width: 100%;
+    height: 30px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #757575;
+  }
+
+  label {
+    color: #999;
+    font-size: 14px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 70px;
+    top: 15px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+  }
+
+  .floating-input:focus~label,
+  .floating-input:not(:placeholder-shown)~label {
+    top: 10px;
+    font-size: 10px;
+    color: #grey;
+    ;
+  }
+
+  .pageheight {
+    margin-top: 5vh;
+    margin-bottom: 20vh;
+  }
+
+  @media only screen and (max-width: 1600px) {
+    .pageheight {
+      margin-top: 5vh;
+      margin-bottom: 20vh;
+    }
+
+  }
+</style>
+<body>
+  {% if authStatus.status != 'default' %}
+  <div class="alert alert-{{authStatus.status}}">{{authStatus.message}}</div>
+  {% endif %}
+  <div class="container-fluid pageheight">
+  <a href="/#/">  <img src="/media/{{storeObj.logo}}" alt="" style="height:10px;margin-bottom:5%;margin-left:5%;"></a>
+    <div class="col-md-12 text-center">
+      <h1> BUDGET MANAGEMENT SYSTEM </h1>
+      <div class="col-md-offset-1 col-md-7">
+        <div class="" style="">
+          <img src="static/images/download.png" alt="" style="width:76%;height:50vh">
+        </div>
+      </div>
+      <div class="col-md-3">
+      <form method="post" class="" action="">{% csrf_token %}
+    {% endif %}
+        <!-- <h1 style="margin-bottom:20px;">Login</h1> -->
+        <!-- <p>To keep connected with us please login with your personal information by email address and password <img src="static/images/bell.svg" alt="" style="width:12px;"> </p> -->
+        <div class="floating-label" style="margin-top:50px;">
+          <input  id="id" name="username"  class="floating-input" type="text" placeholder=" "
+            style="border:none;width:100%;height:50px;background: url('static/images/envelope.svg') no-repeat scroll 25px 12px;background-color:#EEF2F5;padding:20px 70px 0px 70px;background-size: 25px 25px;border-radius:10px 10px 0px 0px;box-shadow: 0 0 2px 1px #efefef;">
+          <span class="highlight">
+            <!-- <i class="fa fa-check-circle" aria-hidden="true" style="color:green;position:absolute;top:20px;right:5%;"> -->
+          </span>
+          <label>Service Id</label>
+        </div>
+        <div class="floating-label">
+          <input  id="password" name="password" class="floating-input" type="password" placeholder=" "
+            style="border:none;width:100%;height:50px;background: url('static/images/locked.svg') no-repeat scroll 25px 12px;background-color:#ffffff;padding:20px 70px 0px 70px;background-size: 25px 25px;border-radius:0px 0px 10px 10px;box-shadow: 0 0 2px 1px #efefef;">
+          <span class="highlight">
+            <!-- <i class="fa fa-eye" aria-hidden="true" style="position:absolute;top:20px;right:5%;"> -->
+          </span>
+          <label>Password</label>
+        </div>
+        <br>
+        <div class="flex-container" style="display:flex;margin-bottom:30px;">
+          <div class="">
+            <button type="submit" name="button" style="background-color:#3A8DFA;border:none;height:40px;border-radius:25px;color:#ffffff;width:130px;margin-right:20px;box-shadow: 0 0 2px 1px #efefef;" >Login Now</button>
+          </div>
+          <div class="">
+            <button onclick="window.location='/'" type="button" name="button" style="background-color:#ffffff;border:none;height:40px;border-radius:25px;width:150px;box-shadow: 0 0 2px 1px #efefef;">Go Back</button>
+          </div>
+        </div>
+      </form>
+      </div>
+    </div>
+  </div>
+  <!-- /container -->
+  {% if useCDN %}
+  <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  {% else %}
+  <script src="{% static 'js/jquery-2.1.4.min.js' %}"></script>
+  <script src="{% static 'js/jquery.cookie-1.4.1.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  {% endif %}
+
+  <script type="text/javascript">
+  function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  }
+
+  function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+  }
+    document.getElementById('requestOTP').addEventListener('click',function(){
+      var id = document.getElementById('username').value;
+      if(id.length == 0){
+        document.getElementById('alerts').innerHTML='<div class="alert alert-warning">Please enter your Mobile number or Email or Username</div>'
+      }
+      else{
+        var csrf = getCookie("csrftoken")
+        var xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+              document.getElementById('alerts').innerHTML='<div class="alert alert-success">OTP Has been sent</div>'
+              document.getElementById('password').setAttribute("placeholder", "OTP");
+              document.getElementById('password').setAttribute("name", "otp");
+              document.getElementById('password').setAttribute("type", "text");
+            }
+            else if(this.status == 400){
+                document.getElementById('alerts').innerHTML='<div class="alert alert-danger">No account</div>'
+            }
+            else if(this.status == 500){
+              document.getElementById('alerts').innerHTML='<div class="alert alert-danger">Error while sending OTP</div>';
+            }
+            else if(this.status == 404){
+              document.getElementById('alerts').innerHTML='<div class="alert alert-danger">You Have No Account , We Are Creating New Account For You</div>';
+              document.getElementById('alerts').value = document.getElementById('username').value
+              document.getElementById('regFrm').submit();
+            }
+            document.getElementById('requestOTP').innerHTML="";
+            document.getElementById('requestOTP').innerText="Resend OTP";
+          };
+          var formData = "id="+id+"&csrfmiddlewaretoken="+csrf+
+          xhttp.open("POST", "/generateOTP");
+          console.log(formData);
+
+          xhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded")
+          xhttp.setRequestHeader("Content-length", formData.length);
+          xhttp.send(formData);
+
+      }
+  })
+  </script>
+</body>
+
+</html>
